@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp Universal Varela Round",
+  "description": "Forces all fonts on WhatsApp Web (Hebrew & English) to Varela Round with custom glow animations.",
+  "version": "2.0.0",
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
