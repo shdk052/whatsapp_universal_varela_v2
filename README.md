@@ -1,8 +1,8 @@
 # WhatsApp Universal Varela Round
 
-Simplified Chrome extension that forces Varela Round font globally across all languages (Hebrew, English, Numbers, UI) on WhatsApp Web, alongside the footer glowing motion effect.
+Upgrade your Whatsapp Web with  different beautiful font and simple animations!
 
-## Install
+## How install?
 
 1. Open `chrome://extensions`.
 2. Enable **Developer mode**.
