@@ -1,6 +1,6 @@
 # WhatsApp Universal Varela Round
 
-Upgrade your Whatsapp Web with  different beautiful font and simple animations!
+Upgrade your Whatsapp Web with a different beautiful font and simple animations!
 
 ## How install?
 
