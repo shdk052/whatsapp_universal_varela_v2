@@ -2,7 +2,7 @@
 
 Upgrade your Whatsapp Web with a different beautiful font and simple animations!
 
-## How install?
+## How to install?
 
 1. Open `chrome://extensions`.
 2. Enable **Developer mode**.
