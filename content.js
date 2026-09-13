@@ -29,4 +29,3 @@
   loadFont();
   enableMotion();
 })();
-

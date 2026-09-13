@@ -1,102 +1,16 @@
-/* Force Varela Round on ALL elements */
+/* Force Varela Round font on ALL text without touching layout or click events */
 *, *::before, *::after {
   font-family: "Varela Round", Arial, sans-serif !important;
 }
 
-body.whatsapp-varela-motion [data-testid="msg-container"],
-body.whatsapp-varela-motion div.message-in,
-body.whatsapp-varela-motion div.message-out {
+/* Subtle message pop-in animation on new messages without breaking clicks */
+body.whatsapp-varela-motion [data-testid="msg-container"] {
   animation: whatsapp-varela-message-pop 220ms cubic-bezier(0.2, 0.85, 0.28, 1.18) both;
-  transform-origin: bottom center;
-  transition: filter 160ms ease, transform 160ms ease;
 }
 
-body.whatsapp-varela-motion [data-testid="msg-container"]:hover,
-body.whatsapp-varela-motion div.message-in:hover,
-body.whatsapp-varela-motion div.message-out:hover {
-  filter: brightness(1.03);
-  transform: translateY(-1px);
-}
-
-body.whatsapp-varela-motion div[role="dialog"],
-body.whatsapp-varela-motion div[role="menu"],
-body.whatsapp-varela-motion [data-testid="drawer-left"],
-body.whatsapp-varela-motion [data-testid="drawer-right"] {
-  animation: whatsapp-varela-panel-float 180ms ease-out both;
-  transform-origin: top center;
-}
-
-body.whatsapp-varela-motion button,
-body.whatsapp-varela-motion [role="button"] {
-  transition: filter 150ms ease, transform 150ms ease, text-shadow 150ms ease;
-}
-
-body.whatsapp-varela-motion button:hover,
-body.whatsapp-varela-motion [role="button"]:hover {
-  animation: whatsapp-varela-button-shine 700ms ease-out;
-  filter: brightness(1.12);
-  text-shadow: 0 0 10px rgba(37, 211, 102, 0.36);
-}
-
-body.whatsapp-varela-motion button:active,
-body.whatsapp-varela-motion [role="button"]:active {
-  transform: scale(0.94);
-}
-
-body.whatsapp-varela-motion [data-testid="cell-frame-container"],
-body.whatsapp-varela-motion div[role="listitem"] {
-  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
-}
-
-body.whatsapp-varela-motion [data-testid="cell-frame-container"]:hover,
-body.whatsapp-varela-motion div[role="listitem"]:hover {
-  box-shadow: inset 3px 0 0 rgba(37, 211, 102, 0.55);
-  transform: translateX(-2px);
-}
-
-body.whatsapp-varela-motion img,
-body.whatsapp-varela-motion [data-testid*="avatar"] {
-  transition: filter 180ms ease, transform 180ms ease;
-}
-
-body.whatsapp-varela-motion img:hover,
-body.whatsapp-varela-motion [data-testid*="avatar"]:hover {
-  filter: saturate(1.12) brightness(1.06);
-  transform: scale(1.025);
-}
-
-body.whatsapp-varela-motion div[role="menuitem"],
-body.whatsapp-varela-motion [data-testid*="menu"] [role="button"] {
-  transition: background-color 150ms ease, padding-inline-start 150ms ease;
-}
-
-body.whatsapp-varela-motion div[role="menuitem"]:hover,
-body.whatsapp-varela-motion [data-testid*="menu"] [role="button"]:hover {
-  padding-inline-start: 4px;
-}
-
-body.whatsapp-varela-motion [data-testid*="unread"],
-body.whatsapp-varela-motion [aria-label*="unread"],
-body.whatsapp-varela-motion [aria-label*="לא נקרא"] {
-  animation: whatsapp-varela-unread-pulse 1.7s ease-in-out infinite;
-}
-
-body.whatsapp-varela-motion svg {
-  transition: filter 140ms ease, transform 140ms ease;
-}
-
-body.whatsapp-varela-motion button:hover svg,
-body.whatsapp-varela-motion [role="button"]:hover svg {
-  filter: drop-shadow(0 0 6px rgba(37, 211, 102, 0.36));
-  transform: rotate(-3deg) scale(1.04);
-}
-
-/* --- Glowing animation around the whole footer compose container --- */
+/* Glowing animation for WhatsApp footer input bar */
 body.whatsapp-varela-motion footer {
-  position: relative !important;
-  isolation: isolate;
-  border-radius: 16px !important;
-  margin: 4px 8px !important;
+  position: relative;
   transition: box-shadow 300ms ease;
 }
 
@@ -104,7 +18,7 @@ body.whatsapp-varela-motion footer::before {
   content: "";
   position: absolute;
   inset: -2px;
-  border-radius: 18px;
+  border-radius: 12px;
   background: linear-gradient(
     45deg,
     #25d366,
@@ -114,18 +28,18 @@ body.whatsapp-varela-motion footer::before {
     #25d366
   );
   background-size: 400% 400%;
-  z-index: -1;
-  opacity: 0.45;
+  z-index: 0;
+  opacity: 0.35;
   filter: blur(8px);
   transition: opacity 300ms ease, filter 300ms ease;
   animation: whatsapp-varela-glow-gradient 6s ease infinite;
-  pointer-events: none;
+  pointer-events: none !important; /* CRITICAL: ensures all clicks pass directly through to buttons/inputs */
 }
 
 body.whatsapp-varela-motion footer:hover::before,
 body.whatsapp-varela-motion footer:focus-within::before {
-  opacity: 0.85;
-  filter: blur(12px);
+  opacity: 0.75;
+  filter: blur(10px);
 }
 
 @keyframes whatsapp-varela-glow-gradient {
@@ -143,57 +57,10 @@ body.whatsapp-varela-motion footer:focus-within::before {
 @keyframes whatsapp-varela-message-pop {
   0% {
     opacity: 0;
-    transform: translateY(8px) scale(0.97);
-  }
-  70% {
-    opacity: 1;
-    transform: translateY(-1px) scale(1.01);
+    transform: translateY(6px);
   }
   100% {
     opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes whatsapp-varela-panel-float {
-  from {
-    opacity: 0;
-    transform: translateY(8px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@keyframes whatsapp-varela-button-shine {
-  0% {
-    filter: brightness(1);
-  }
-  45% {
-    filter: brightness(1.22) saturate(1.08);
-  }
-  100% {
-    filter: brightness(1.12);
-  }
-}
-
-@keyframes whatsapp-varela-unread-pulse {
-  0%, 100% {
-    filter: brightness(1);
-    transform: scale(1);
-  }
-  50% {
-    filter: brightness(1.18);
-    transform: scale(1.08);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  body.whatsapp-varela-motion *,
-  body.whatsapp-varela-motion *::before,
-  body.whatsapp-varela-motion *::after {
-    animation-duration: 1ms !important;
-    transition-duration: 1ms !important;
+    transform: translateY(0);
   }
 }
