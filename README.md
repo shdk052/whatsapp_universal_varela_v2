@@ -1,4 +1,4 @@
-# WhatsApp Universal Varela Round (Fixed)
+# WhatsApp Universal Varela Round 
 
 Forces Varela Round font globally across all languages on WhatsApp Web with zero interference with buttons, clicks, search, or poll voting.
 
