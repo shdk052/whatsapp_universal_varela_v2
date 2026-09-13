@@ -1,11 +1,13 @@
-# WhatsApp Universal Varela Round 
+# WhatsApp Universal Varela Round
 
-Forces Varela Round font globally across all languages on WhatsApp Web with zero interference with buttons, clicks, search, or poll voting.
+Upgrade your Whatsapp Web with a different beautiful font and simple animations!
 
-## Install
-
-1. Open `chrome://extensions`.
-2. Enable **Developer mode**.
-3. Click **Load unpacked**.
-4. Select this folder.
-5. Open or refresh `https://web.whatsapp.com`.
+## How to install?
+ 
+1. Download this folder.
+2. Extract the zip file.
+3. Open `chrome://extensions`.
+4. Enable **Developer mode**.
+5. Click **Load unpacked**.
+6. Select the extracted folder.
+7. Open or refresh `https://web.whatsapp.com`.
